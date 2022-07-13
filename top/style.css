@@ -1,0 +1,163 @@
+.header_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_links {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  width: 30%;
+}
+
+main {
+  display: block;
+}
+
+.l-main {
+  padding-top: 80px;
+}
+
+.p-top-hero {
+  position: relative;
+}
+
+*,
+::before,
+::after {
+  border-style: solid;
+  border-width: 0;
+  box-sizing: border-box;
+}
+
+.p-top-hero_inner {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1280px;
+  position: relative;
+}
+
+.p-top-hero_body {
+  align-self: center;
+  background-color: #eff2f5;
+  border-radius: 24px;
+  display: inline-block;
+  padding: 50px 62px;
+  position: absolute;
+  top: 30%;
+  white-space: nowrap;
+}
+
+.p-top-hero_body_title {
+  color: #0071bc;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+.p-top-hero_body_catchcopy {
+  display: inline-block;
+  font-size: 60px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  line-height: 1.3333;
+  margin-top: 10px;
+}
+
+.top_image {
+  border-radius: 80px 0 0 80px;
+  display: block;
+  max-height: 680px;
+  overflow: hidden;
+  position: absolute;
+  top: 10%;
+  right: 0;
+  z-index: -1;
+  width: 70%;
+}
+
+.p-top-body_title {
+  z-index: 3;
+  position: absolute;
+  width: 376px;
+  height: 29px;
+  left: 142px;
+  top: 238px;
+
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 180%;
+  /* identical to box height, or 29px */
+  /* primary */
+  color: #0071BC;
+}
+
+
+.p-top_back {
+  position: relative;
+  width: 30%;
+  z-index: 2;
+  /* primary-light */
+
+  background: #EFF2F5;
+  border-radius: 24px;
+}
+
+.p-top-body_catchcopy {
+  z-index: 4;
+  position: absolute;
+  width: 380px;
+  height: 160px;
+  left: 142px;
+  top: 279px;
+
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  /* or 133% */
+
+  letter-spacing: 0.05em;
+
+  /* dark */
+
+  color: #333333;
+}
+
+.p-second_title {
+  position: absolute;
+  width: 191px;
+  height: 54px;
+  left: calc(50% - 191px/2);
+  top: 0px;
+
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 150%;
+  /* identical to box height, or 54px */
+
+  text-align: center;
+
+  /* dark */
+
+  color: #333333;
+}
+
+.p-second_hero {
+  padding-top: 50px;
+}
