@@ -141,9 +141,9 @@ h1 {
   color: #333333;
 }
 
-.p-top-hero_bottom{
+.p-top-hero_bottom {
   padding-top: 650px;
-  padding-left:50px;
+  padding-left: 50px;
 }
 
 .p-second_hero {
@@ -205,21 +205,31 @@ h1 {
   height: 680px;
   position: relative;
   padding-top: 50px;
-  border-bottom:1px solid black ;
+  border-bottom: 1px solid black;
 }
 
 .p-third_box {
   width: 68%;
-
   margin: 0 15%;
   text-align: center;
-  position: relative;
-  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%), url(/assets_sample/img/bg-line.jpg);
+  position: relative;background-image: url(/assets_sample/img/bg-line.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 35px 35px 35px 35px;
   overflow: hidden;
+  z-index: 0;
+}
 
+.p-third_box::after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: blue;
+  opacity: 0.5;
 }
 
 
