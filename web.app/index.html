@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+  <header>
+    <div class="header_inner">
+      <img src="./img/logo/logo.svg" alt="POSSE">
+      <span>4th week</span>
+    </div>
+    <button id="open">記録・投稿</button>
+  </header>
+  <!-- modal window -->
+  <div id="mask" class="hidden"></div>
+  <section id="modal" class="hidden">
+    <span id="modal_close" class="material-symbols-outlined">
+      close</span>
+    <button id="submit">記録・投稿</button>
+  </section>
+  <!-- loading window -->
+  <section id="loading" class="hidden">
+    <span class="circle"></span>
+  </section>
+  <!-- completion window -->
+  <section id="completion" class="hidden">
+    <span id="close" class="material-symbols-outlined">
+      close</span>
+    <div class="completion_inner">
+      <span>AWESOME!</span>
+      <img class="completion_check" src="./img/check_mark-2.png" alt="checkmark">
+      <p>記録・投稿<br>完了しました</p>
+    </div>
+  </section>
+  <!-- main  -->
+  <main class="learning">
+    <section class="learning_record">
+      <div class="learning_record_numbers">
+        <div class="learning_record_numbers_today">
+          <ul>
+            <li class="title">Today</li>
+            <li class="number">3</li>
+            <li class="hour">hour</li>
+          </ul>
+        </div>
+        <div class="learning_record_numbers_month">
+          <ul>
+            <li class="title">Month</li>
+            <li class="number">120</li>
+            <li class="hour">hour</li>
+          </ul>
+        </div>
+        <div class="learning_record_numbers_total">
+          <ul>
+            <li class="title">Total</li>
+            <li class="number">1348</li>
+            <li class="hour">hour</li>
+          </ul>
+        </div>
+      </div>
+      <div class="learning_record_graph"></div>
+    </section>
+    <section class="learning_function">
+      <div class="learning_function_lang">
+        <span class="learning_function_title">学習言語</span>
+        <div class="learning_function_graph"></div>
+        <div class="learning_function_list"></div>
+      </div>
+      <div class="learning_function_contents"></div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer_container">
+      <span id="prev" class="material-symbols-outlined">
+        navigate_before
+        </span>
+      <div id="js-date"></div>
+      <span id="next" class="material-symbols-outlined">
+        navigate_next
+        </span>
+    </div>
+  </footer>
+  <script src="./scripts/modal.js"></script>
+  <script src="./scripts/loading.js"></script>
+  <script src="./scripts/footer.js"></script>
+</body>
+</html>
