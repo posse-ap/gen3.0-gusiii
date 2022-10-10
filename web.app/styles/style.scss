@@ -54,7 +54,7 @@ header{
 #modal{
   width: 72vw;
   height: 64vh;
-  padding: 5vh;
+  padding: 5vh 5vw;
   top: 14vh;
   left: 0;
   right: 0;
@@ -74,6 +74,129 @@ header{
     cursor: pointer;
     position: absolute;
   }
+}
+
+.study_container{
+  display: flex;
+  justify-content: space-between;
+}
+.study_inner{
+  width: 30vw;
+  height:58vh;
+  display: flex;
+  flex-direction: column;flex-wrap: wrap;
+  justify-content: space-between;
+  
+  // :nth-child(n){
+  //   padding: 1vh;
+  // }
+}
+.study_title{
+  font-size: 1.8vh;
+}
+.study_comment_box,.study_date_box,.study_time_box{
+  width: 100%;
+}
+.study_selection_box{
+  label {
+    padding-left: 40px;
+    position: absolute;
+}
+label:before {
+  opacity: 0;
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 15px;
+  border-right: 4px solid #4973FF;
+  border-bottom: 4px solid #4973FF;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -3px;
+  left: 8px;
+}
+label:after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #3E3E3E;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+[type=checkbox]:checked + label:before {
+  opacity: 1;
+}
+}
+.study_comment_box{
+  height: 25vh;
+}
+.study_data_check{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.study_data_check label{
+    display: inline-block;
+    background-color: #f9f9f9;
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+.study_data_check label {
+    padding: 8px 10px;
+    cursor: pointer;
+    color:black;
+}
+.study_data_check label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 4px 2px 2px;
+    content: "\02713";
+  background-color:#e1e1e1;
+  border-radius:50%;
+  color:white;
+}
+.study_data_check input[type="checkbox"]:checked + label::before {
+  content: "\02713";
+  background-color:#2630ff;
+  border-radius:50%;
+  color:white;
+  transition: all .2s;
+}
+.study_data_check input[type="checkbox"]:checked + label::before {
+  opacity: 1;
+  transition: all .2s;
+}
+
+.study_data_check input[type="checkbox"]:checked + label {
+    // border: 2px solid #1bdbf8;
+    background-color: #c9e4ff;
+    color:black;
+    transition: all .2s;
+}
+
+.study_data_check input[type="checkbox"] {
+  display: absolute;
+}
+.study_data_check input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
 }
 /* loading window */
 #loading{
@@ -184,6 +307,7 @@ header{
   .completion_inner{
     width: 20vw;
     height: 10vh;
+    font-size: 1.5rem;
     top: 0;
     bottom: 0;
     right: 0;
@@ -237,7 +361,7 @@ header{
         color: rgb(23, 91, 147);
       }
       .number{
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: bold;
         color: black;
       }
@@ -246,7 +370,8 @@ header{
       }
     }
     .learning_record_graph{
-      height: 50vh;
+      height: 40vh;
+      padding:5vh 5vw ;
       border-radius: 2vh;
       box-shadow: 0 0 1vh 0.5vh rgba(10,10,10,0.08);
     }
@@ -255,13 +380,25 @@ header{
     width: 43vw;
     display: flex;
     justify-content: space-between;
-    &_lang,&_contents{
+    &_lang, &_contents{
       width: 20.5vw;
       border-radius: 2vh;
       box-shadow: 0 0 1vh 0.5vh rgba(10,10,10,0.08);
     }
+    &_title{
+      display: block;
+      padding-top: 5vh;
+      padding-left: 1vw;
+    }
   }
 }
+.chart-inner{
+  padding-top: 10vh;
+}
+#language_chart,#content_chart{
+  width: 20vw;
+}
+
 .footer{
   width: 94vw;
   height: 10vh;
