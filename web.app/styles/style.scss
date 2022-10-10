@@ -85,11 +85,7 @@ header{
   height:58vh;
   display: flex;
   flex-direction: column;flex-wrap: wrap;
-  justify-content: space-between;
-  
-  // :nth-child(n){
-  //   padding: 1vh;
-  // }
+  justify-content: space-around;
 }
 .study_title{
   font-size: 1.8vh;

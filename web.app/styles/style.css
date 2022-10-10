@@ -93,7 +93,7 @@ header .header_inner span {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .study_title {
