@@ -3,6 +3,7 @@
 
   const open = document.getElementById("open");
   const submit = document.getElementById("submit");
+  const loading = document.getElementById('loading');
   const modal = document.getElementById("modal");
   const mask = document.getElementById("mask");
   const modalclose = document.getElementById("modal_close");
@@ -19,6 +20,7 @@
   mask.addEventListener("click", () => {
     modal.classList.add('hidden');
     mask.classList.add('hidden');
+    loading.classList.add('hidden');
   });
 
   modalclose.addEventListener("click", () => {

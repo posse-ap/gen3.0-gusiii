@@ -10,6 +10,7 @@ body {
   height: 100vh;
 }
 
+/* background area */
 /* header*/
 header {
   width: 94vw;
@@ -33,7 +34,8 @@ header .header_inner span {
   color: rgb(149, 197, 237);
 }
 
-#open, #submit {
+#open,
+#submit {
   width: 15vw;
   height: 6vh;
   color: white;
@@ -41,6 +43,12 @@ header .header_inner span {
   cursor: pointer;
   background-image: -webkit-linear-gradient(1800deg, rgb(7, 103, 147), rgb(3, 193, 251));
   border-radius: 10vh;
+}
+@media screen and (max-width: 767px) {
+  #open,
+#submit {
+    display: none;
+  }
 }
 
 /* modal window */
@@ -86,8 +94,7 @@ header .header_inner span {
   display: flex;
   justify-content: space-between;
 }
-
-.study_inner {
+.study_container .study_inner {
   width: 30vw;
   height: 58vh;
   display: flex;
@@ -95,57 +102,53 @@ header .header_inner span {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
-.study_title {
+.study_container .study_title {
   font-size: 1.8vh;
 }
-
-.study_comment_box, .study_date_box, .study_time_box {
+.study_container .study_comment_box,
+.study_container .study_date_box,
+.study_container .study_time_box {
   width: 100%;
 }
-
-.study_selection_box label {
+.study_container .study_selection_box label {
   padding-left: 40px;
   position: absolute;
 }
-.study_selection_box label:before {
+.study_container .study_selection_box label:before {
   opacity: 0;
   content: "";
   display: inline-block;
   width: 7px;
   height: 15px;
-  border-right: 4px solid #4973FF;
-  border-bottom: 4px solid #4973FF;
+  border-right: 4px solid #4973ff;
+  border-bottom: 4px solid #4973ff;
   transform: rotate(45deg);
   position: absolute;
   top: -3px;
   left: 8px;
 }
-.study_selection_box label:after {
+.study_container .study_selection_box label:after {
   content: "";
   display: block;
   width: 20px;
   height: 20px;
-  border: 1px solid #3E3E3E;
+  border: 1px solid #3e3e3e;
   position: absolute;
   top: 0;
   left: 0;
 }
-.study_selection_box [type=checkbox]:checked + label:before {
+.study_container .study_selection_box [type=checkbox]:checked + label:before {
   opacity: 1;
 }
-
-.study_comment_box {
+.study_container .study_comment_box {
   height: 25vh;
 }
-
-.study_data_check {
+.study_container .study_data_check {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
-.study_data_check label {
+.study_container .study_data_check label {
   display: inline-block;
   background-color: #f9f9f9;
   color: #adadad;
@@ -160,14 +163,12 @@ header .header_inner span {
   -webkit-tap-highlight-color: transparent;
   transition: all 0.2s;
 }
-
-.study_data_check label {
+.study_container .study_data_check label {
   padding: 8px 10px;
   cursor: pointer;
   color: black;
 }
-
-.study_data_check label::before {
+.study_container .study_data_check label::before {
   display: inline-block;
   font-style: normal;
   font-variant: normal;
@@ -182,31 +183,26 @@ header .header_inner span {
   border-radius: 50%;
   color: white;
 }
-
-.study_data_check input[type=checkbox]:checked + label::before {
+.study_container .study_data_check input[type=checkbox]:checked + label::before {
   content: "✓";
   background-color: #2630ff;
   border-radius: 50%;
   color: white;
   transition: all 0.2s;
 }
-
-.study_data_check input[type=checkbox]:checked + label::before {
+.study_container .study_data_check input[type=checkbox]:checked + label::before {
   opacity: 1;
   transition: all 0.2s;
 }
-
-.study_data_check input[type=checkbox]:checked + label {
+.study_container .study_data_check input[type=checkbox]:checked + label {
   background-color: #c9e4ff;
   color: black;
   transition: all 0.2s;
 }
-
-.study_data_check input[type=checkbox] {
+.study_container .study_data_check input[type=checkbox] {
   display: absolute;
 }
-
-.study_data_check input[type=checkbox] {
+.study_container .study_data_check input[type=checkbox] {
   position: absolute;
   opacity: 0;
 }
@@ -238,7 +234,7 @@ header .header_inner span {
   margin: 20vh auto;
   display: block;
   border-radius: 50%;
-  background: linear-gradient(to right, #0AD5F0 10%, rgba(10, 213, 240, 0) 42%);
+  background: linear-gradient(to right, #0ad5f0 10%, rgba(10, 213, 240, 0) 42%);
   -webkit-animation: load3 1.4s infinite linear;
           animation: load3 1.4s infinite linear;
   transform: translateZ(0);
@@ -325,7 +321,7 @@ header .header_inner span {
 }
 #completion .completion_inner span {
   font-size: 90%;
-  color: #B6F272;
+  color: #b6f272;
 }
 #completion .completion_inner p {
   font-size: 90%;
@@ -345,8 +341,18 @@ header .header_inner span {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 767px) {
+  .learning {
+    flex-direction: column;
+  }
+}
 .learning .learning_record {
   width: 43vw;
+}
+@media screen and (max-width: 767px) {
+  .learning .learning_record {
+    width: 90vw;
+  }
 }
 .learning .learning_record .learning_record_numbers {
   height: 21vh;
@@ -362,6 +368,11 @@ header .header_inner span {
   justify-content: center;
   border-radius: 2vh;
   box-shadow: 0 0 1vh 0.5vh rgba(10, 10, 10, 0.08);
+}
+@media screen and (max-width: 767px) {
+  .learning .learning_record .learning_record_numbers_today, .learning .learning_record .learning_record_numbers_month, .learning .learning_record .learning_record_numbers_total {
+    width: 100%;
+  }
 }
 .learning .learning_record .learning_record_numbers ul {
   list-style: none;
@@ -388,10 +399,20 @@ header .header_inner span {
   display: flex;
   justify-content: space-between;
 }
+@media screen and (max-width: 767px) {
+  .learning .learning_function {
+    width: 90vw;
+  }
+}
 .learning .learning_function_lang, .learning .learning_function_contents {
   width: 20.5vw;
   border-radius: 2vh;
   box-shadow: 0 0 1vh 0.5vh rgba(10, 10, 10, 0.08);
+}
+@media screen and (max-width: 767px) {
+  .learning .learning_function_lang, .learning .learning_function_contents {
+    width: 45vw;
+  }
 }
 .learning .learning_function_title {
   display: block;
@@ -403,7 +424,8 @@ header .header_inner span {
   padding-top: 10vh;
 }
 
-#language_chart, #content_chart {
+#language_chart,
+#content_chart {
   width: 20vw;
 }
 
