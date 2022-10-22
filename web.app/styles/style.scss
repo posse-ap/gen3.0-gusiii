@@ -1,5 +1,5 @@
 $breakpoint: (
-  sp: 'screen and (max-width: 767px)',
+  sp: "screen and (max-width: 767px)",
 );
 
 @mixin mq($bp) {
@@ -7,7 +7,6 @@ $breakpoint: (
     @content;
   }
 }
-
 
 /*common*/
 * {
@@ -17,6 +16,9 @@ $breakpoint: (
 body {
   width: 100vw;
   height: 100vh;
+  @include mq(sp) {
+    height: inherit;
+  }
 }
 /* background area */
 
@@ -29,8 +31,12 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1vh 1vh 1vh rgba(10, 10, 10, 0.08);
+  background-color: #fff;
   position: fixed;
   z-index: 80;
+  @include mq(sp) {
+    height: 64px;
+  }
   .header_inner {
     display: flex;
     align-items: center;
@@ -38,7 +44,7 @@ header {
       margin-right: 5vw;
     }
     span {
-      color: rgb(149, 197, 237);
+      color: #97b9d1;
     }
   }
 }
@@ -386,19 +392,24 @@ header {
   display: flex;
   justify-content: space-between;
   @include mq(sp) {
+    height: 100vh;
     flex-direction: column;
   }
   .learning_record {
     width: 43vw;
     @include mq(sp) {
       width: 90vw;
+      height: inherit;
     }
     .learning_record_numbers {
       height: 21vh;
       padding-bottom: 2vh;
       display: flex;
       justify-content: space-between;
-      
+      @include mq(sp) {
+        height: 16vh;
+      }
+
       &_today,
       &_month,
       &_total {
@@ -410,14 +421,14 @@ header {
         border-radius: 2vh;
         box-shadow: 0 0 1vh 0.5vh rgba(10, 10, 10, 0.08);
         @include mq(sp) {
-          width: 100%;
+          width: 28vw;
         }
       }
       ul {
         list-style: none;
       }
       .title {
-        color: rgb(23, 91, 147);
+        color: #0f71bc;
       }
       .number {
         font-size: 2rem;
@@ -425,7 +436,7 @@ header {
         color: black;
       }
       .hour {
-        color: rgb(149, 197, 237);
+        color: #97b9d1;
       }
     }
     .learning_record_graph {
@@ -433,6 +444,11 @@ header {
       padding: 5vh 5vw;
       border-radius: 2vh;
       box-shadow: 0 0 1vh 0.5vh rgba(10, 10, 10, 0.08);
+      @include mq(sp) {
+        height: 20vh;
+        margin-bottom: 16px;
+        padding: 3vh 3vw;
+      }
     }
   }
   .learning_function {
@@ -448,7 +464,7 @@ header {
       border-radius: 2vh;
       box-shadow: 0 0 1vh 0.5vh rgba(10, 10, 10, 0.08);
       @include mq(sp) {
-        width: 45vw;
+        width: 42.5vw;
       }
     }
     &_title {
@@ -460,6 +476,9 @@ header {
 }
 .chart-inner {
   padding-top: 10vh;
+  @include mq(sp) {
+    padding-top: 3vh;
+  }
 }
 #language_chart,
 #content_chart {
@@ -477,9 +496,33 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include mq(sp) {
+      width: 50vw;
+      height: 10vh;
+    }
   }
   .material-symbols-outlined {
     color: rgb(23, 91, 147);
     cursor: pointer;
+  }
+}
+
+.sp_button {
+  display: none;
+  @include mq(sp) {
+    display: block;
+    width: 90vw;
+    height: 5vh;
+    margin: auto;
+    margin-bottom: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(
+      1800deg,
+      rgb(7, 103, 147),
+      rgb(3, 193, 251)
+    );
+    border-radius: 10vh;
   }
 }

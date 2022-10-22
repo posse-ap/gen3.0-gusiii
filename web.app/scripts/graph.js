@@ -1,4 +1,5 @@
 "use script";
+/* record chart */ 
 {
   var jsonfile = {
     jsonarray: [
@@ -171,7 +172,7 @@
       },
       x: {
         ticks: {
-          stepSize: 2,
+          stepSize: 1,
           minRotation: 0,
           maxRotation: 0,
         },
@@ -188,6 +189,7 @@
     data: data,
   });
 }
+/* languages chart */ 
 {
   var jsonfile2 = {
     jsonarray2: [
@@ -293,13 +295,13 @@
         {
           label: "Sample",
           backgroundColor: [
-            "#2736DB",
-            "#1F83F2",
-            "#1ECCE8",
-            "#4CAF50",
-            "#9C27B0",
-            "#00BCD4",
-            "#E91E63",
+            "#0042E5",
+            "#0070B9",
+            "#01BDDB",
+            "#02CDFA",
+            "#B29DEE",
+            "#6C43E5",
+            "#460AE8",
           ],
           data: BAChartDataValue,
         },
@@ -326,6 +328,7 @@
     plugins: [dataLabelPlugin],
   });
 }
+/* contents chart */ 
 {
   var dataLabelPlugin = {
     afterDatasetsDraw: function (chart, easing) {
@@ -386,13 +389,13 @@
         {
           label: "Sample",
           backgroundColor: [
-            "#2736DB",
-            "#1F83F2",
-            "#1ECCE8",
-            "#4CAF50",
-            "#9C27B0",
-            "#00BCD4",
-            "#E91E63",
+            "#0042E5",
+            "#0070B9",
+            "#01BDDB",
+            "#02CDFA",
+            "#B29DEE",
+            "#6C43E5",
+            "#460AE8",
           ],
           data: [40, 20, 40],
         },

@@ -31,7 +31,9 @@
 {
   const studyDate = document.getElementById("js-studydate");
   studyDate.innerHTML =
-    '<input type="date" name="today" value="2020-10-27" min="2020-01-01" max="2020-12-31" class="study_date_box">';
+    '<input type="text" name="today" id="calendarTEST" class="study_date_box">';
+  flatpickr.localize(flatpickr.l10ns.ja);
+  flatpickr('#calendarTEST');
 }
 {
   const Contents = ["N予備校", "ドットインストール", "POSSE課題"];

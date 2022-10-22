@@ -9,6 +9,11 @@ body {
   width: 100vw;
   height: 100vh;
 }
+@media screen and (max-width: 767px) {
+  body {
+    height: inherit;
+  }
+}
 
 /* background area */
 /* header*/
@@ -20,8 +25,14 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 1vh 1vh 1vh rgba(10, 10, 10, 0.08);
+  background-color: #fff;
   position: fixed;
   z-index: 80;
+}
+@media screen and (max-width: 767px) {
+  header {
+    height: 64px;
+  }
 }
 header .header_inner {
   display: flex;
@@ -31,7 +42,7 @@ header .header_inner img {
   margin-right: 5vw;
 }
 header .header_inner span {
-  color: rgb(149, 197, 237);
+  color: #97b9d1;
 }
 
 #open,
@@ -343,6 +354,7 @@ header .header_inner span {
 }
 @media screen and (max-width: 767px) {
   .learning {
+    height: 100vh;
     flex-direction: column;
   }
 }
@@ -352,6 +364,7 @@ header .header_inner span {
 @media screen and (max-width: 767px) {
   .learning .learning_record {
     width: 90vw;
+    height: inherit;
   }
 }
 .learning .learning_record .learning_record_numbers {
@@ -359,6 +372,11 @@ header .header_inner span {
   padding-bottom: 2vh;
   display: flex;
   justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  .learning .learning_record .learning_record_numbers {
+    height: 16vh;
+  }
 }
 .learning .learning_record .learning_record_numbers_today, .learning .learning_record .learning_record_numbers_month, .learning .learning_record .learning_record_numbers_total {
   width: 13vw;
@@ -371,14 +389,14 @@ header .header_inner span {
 }
 @media screen and (max-width: 767px) {
   .learning .learning_record .learning_record_numbers_today, .learning .learning_record .learning_record_numbers_month, .learning .learning_record .learning_record_numbers_total {
-    width: 100%;
+    width: 28vw;
   }
 }
 .learning .learning_record .learning_record_numbers ul {
   list-style: none;
 }
 .learning .learning_record .learning_record_numbers .title {
-  color: rgb(23, 91, 147);
+  color: #0f71bc;
 }
 .learning .learning_record .learning_record_numbers .number {
   font-size: 2rem;
@@ -386,13 +404,20 @@ header .header_inner span {
   color: black;
 }
 .learning .learning_record .learning_record_numbers .hour {
-  color: rgb(149, 197, 237);
+  color: #97b9d1;
 }
 .learning .learning_record .learning_record_graph {
   height: 40vh;
   padding: 5vh 5vw;
   border-radius: 2vh;
   box-shadow: 0 0 1vh 0.5vh rgba(10, 10, 10, 0.08);
+}
+@media screen and (max-width: 767px) {
+  .learning .learning_record .learning_record_graph {
+    height: 20vh;
+    margin-bottom: 16px;
+    padding: 3vh 3vw;
+  }
 }
 .learning .learning_function {
   width: 43vw;
@@ -411,7 +436,7 @@ header .header_inner span {
 }
 @media screen and (max-width: 767px) {
   .learning .learning_function_lang, .learning .learning_function_contents {
-    width: 45vw;
+    width: 42.5vw;
   }
 }
 .learning .learning_function_title {
@@ -422,6 +447,11 @@ header .header_inner span {
 
 .chart-inner {
   padding-top: 10vh;
+}
+@media screen and (max-width: 767px) {
+  .chart-inner {
+    padding-top: 3vh;
+  }
 }
 
 #language_chart,
@@ -442,7 +472,31 @@ header .header_inner span {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 767px) {
+  .footer_container {
+    width: 50vw;
+    height: 10vh;
+  }
+}
 .footer .material-symbols-outlined {
   color: rgb(23, 91, 147);
   cursor: pointer;
+}
+
+.sp_button {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .sp_button {
+    display: block;
+    width: 90vw;
+    height: 5vh;
+    margin: auto;
+    margin-bottom: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(1800deg, rgb(7, 103, 147), rgb(3, 193, 251));
+    border-radius: 10vh;
+  }
 }/*# sourceMappingURL=style.css.map */
