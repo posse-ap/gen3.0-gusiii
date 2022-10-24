@@ -1,3 +1,4 @@
+/* window */ 
 $breakpoint: (
   sp: "screen and (max-width: 767px)",
 );
@@ -7,6 +8,7 @@ $breakpoint: (
     @content;
   }
 }
+
 
 /*common*/
 * {
@@ -22,7 +24,46 @@ body {
     height: inherit;
   }
 }
-/* background area */
+
+/* button */ 
+#open,
+#submit {
+  width: 15vw;
+  height: 6vh;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-image: -webkit-linear-gradient(
+    1800deg,
+    #0175BB,
+    #07CAF9
+  );
+  box-shadow: 0 5px 5px 0 #73DFFC;
+  border-radius: 10vh;
+
+  @include mq(sp) {
+    display: none;
+  }
+}
+.sp_button {
+  display: none;
+  @include mq(sp) {
+    display: block;
+    width: 90vw;
+    height: 5vh;
+    margin: auto;
+    margin-bottom: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(
+      1800deg,
+      rgb(7, 103, 147),
+      rgb(3, 193, 251)
+    );
+    border-radius: 10vh;
+  }
+}
 
 /* header*/
 header {
@@ -50,25 +91,7 @@ header {
     }
   }
 }
-#open,
-#submit {
-  width: 15vw;
-  height: 6vh;
-  color: white;
-  border: none;
-  cursor: pointer;
-  background-image: -webkit-linear-gradient(
-    1800deg,
-    #0175BB,
-    #07CAF9
-  );
-  box-shadow: 0 5px 5px 0 #73DFFC;
-  border-radius: 10vh;
 
-  @include mq(sp) {
-    display: none;
-  }
-}
 /* modal window */
 #mask {
   height: 100vh;
@@ -78,11 +101,11 @@ header {
   left: 0;
   background: rgba(0, 0, 0, 0.4);
   position: fixed;
-  &.hidden {
-    display: none;
-  }
   @include mq(sp) {
     height: 100%;
+  }
+  &.hidden {
+    display: none;
   }
 }
 #modal {
@@ -116,145 +139,138 @@ header {
     cursor: pointer;
     position: absolute;
   }
-}
-
-.study_container {
-  display: flex;
-  justify-content: space-between;
-  background-color: #fff;
-  @include mq(sp) {
-    flex-direction: column;
-    padding: 5%;
-  }
-
-  .study_inner {
-    width: 30vw;
-    height: 58vh;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    @include mq(sp) {
-      width: 100%;
-    }
-  }
-
-  .study_title {
-    font-size: 1.8vh;
-  }
-
-  .study_comment_box,
-  .study_date_box,
-  .study_time_box {
-    width: 96%;
-    height: 5vh;
-    padding: 2%;
-    border: none;
-    border-radius: 2vh;
-    background-color: #f5f5f8;
-  }
-
-  .study_selection_box {
-    label {
-      padding-left: 40px;
-      position: absolute;
-    }
-    label:before {
-      opacity: 0;
-      content: "";
-      display: inline-block;
-      width: 7px;
-      height: 15px;
-      border-right: 4px solid #4973ff;
-      border-bottom: 4px solid #4973ff;
-      transform: rotate(45deg);
-      position: absolute;
-      top: -3px;
-      left: 8px;
-    }
-    label:after {
-      content: "";
-      display: block;
-      width: 20px;
-      height: 20px;
-      border: 1px solid #3e3e3e;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-    [type="checkbox"]:checked + label:before {
-      opacity: 1;
-    }
-  }
-  .study_comment_box {
-    height: 25vh;
-  }
-
-  .study_data_check {
+  .study_container {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  .study_data_check label {
-    display: inline-block;
-    background-color: #f9f9f9;
-    color: #adadad;
-    border-radius: 25px;
-    white-space: nowrap;
-    margin: 3px 0px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: all 0.2s;
-  }
-  .study_data_check label {
-    padding: 8px 10px;
-    cursor: pointer;
-    color: black;
-  }
-  .study_data_check label::before {
-    // display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 12px;
-    padding: 2px 2px 2px 2px;
-    content: "\02713";
-    background-color: #e1e1e1;
-    border-radius: 50%;
-    color: white;
-  }
-  .study_data_check input[type="checkbox"]:checked + label::before {
-    content: "\02713";
-    background-color: #0F70BD;
-    border-radius: 50%;
-    color: white;
-    transition: all 0.2s;
-  }
-  .study_data_check input[type="checkbox"]:checked + label::before {
-    opacity: 1;
-    transition: all 0.2s;
-  }
-
-  .study_data_check input[type="checkbox"]:checked + label {
-    // border: 2px solid #1bdbf8;
-    background-color: #E7F5FF;
-    color: black;
-    transition: all 0.2s;
-  }
-
-  .study_data_check input[type="checkbox"] {
-    display: absolute;
-  }
-  .study_data_check input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
+    background-color: #fff;
+    @include mq(sp) {
+      flex-direction: column;
+      padding: 5%;
+    }
+  
+    .study_inner {
+      width: 30vw;
+      height: 58vh;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      @include mq(sp) {
+        width: 100%;
+      }
+    }
+  
+    .study_title {
+      font-size: 1.8vh;
+    }
+  
+    .study_comment_box,
+    .study_date_box,
+    .study_time_box {
+      width: 96%;
+      height: 5vh;
+      padding: 2%;
+      border: none;
+      border-radius: 2vh;
+      background-color: #f5f5f8;
+    }
+  
+    .study_selection_box {
+      label {
+        padding-left: 40px;
+        position: absolute;
+        &:before {
+          opacity: 0;
+          content: "";
+          display: inline-block;
+          width: 7px;
+          height: 15px;
+          border-right: 4px solid #4973ff;
+          border-bottom: 4px solid #4973ff;
+          transform: rotate(45deg);
+          position: absolute;
+          top: -3px;
+          left: 8px;
+        }
+        &:after {
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          border: 1px solid #3e3e3e;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+      [type="checkbox"]:checked + label:before {
+        opacity: 1;
+      }
+    }
+    .study_comment_box {
+      height: 25vh;
+    }
+  
+    .study_data_check {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .study_data_check label {
+      display: inline-block;
+      background-color: #f5f5f8;
+      border-radius: 25px;
+      white-space: nowrap;
+      margin: 3px 0px;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: all 0.2s;
+      padding: 8px 10px;
+      cursor: pointer;
+      color: black;
+      &::before {
+        // display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 12px;
+        padding: 2px 2px 2px 2px;
+        content: "\02713";
+        background-color: #e1e1e1;
+        border-radius: 50%;
+        color: white;
+      }
+    }
+    
+    .study_data_check input[type="checkbox"]:checked + label::before {
+      content: "\02713";
+      background-color: #0F70BD;
+      border-radius: 50%;
+      color: white;
+      transition: all 0.2s;
+      opacity: 1;
+      transition: all 0.2s;
+    }
+  
+    .study_data_check input[type="checkbox"]:checked + label {
+      // border: 2px solid #1bdbf8;
+      background-color: #E7F5FF;
+      color: black;
+      transition: all 0.2s;
+    }
+  
+    .study_data_check input[type="checkbox"] {
+      display: absolute;
+      position: absolute;
+      opacity: 0;
+    }
   }
 }
 
@@ -525,6 +541,7 @@ header {
   width: 20vw;
 }
 
+/* footer */ 
 .footer {
   width: 94vw;
   height: 10vh;
@@ -547,22 +564,4 @@ header {
   }
 }
 
-.sp_button {
-  display: none;
-  @include mq(sp) {
-    display: block;
-    width: 90vw;
-    height: 5vh;
-    margin: auto;
-    margin-bottom: 20px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    background-image: -webkit-linear-gradient(
-      1800deg,
-      rgb(7, 103, 147),
-      rgb(3, 193, 251)
-    );
-    border-radius: 10vh;
-  }
-}
+

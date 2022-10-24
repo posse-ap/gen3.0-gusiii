@@ -38,7 +38,7 @@
 {
   const studyDate = document.getElementById("js-studydate");
   studyDate.innerHTML =
-    '<input type="text" name="today" id="calendarTEST" value="YYYY-MM-DD" class="study_date_box">';
+    '<input type="text" name="today" id="calendarTEST" value="YYYY-MM-DD" class="study_date_box" required>';
   flatpickr.localize(flatpickr.l10ns.ja);
   flatpickr('#calendarTEST');
 }

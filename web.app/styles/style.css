@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* window */
 /*common*/
 * {
   margin: 0;
@@ -17,7 +18,43 @@ body {
   }
 }
 
-/* background area */
+/* button */
+#open,
+#submit {
+  width: 15vw;
+  height: 6vh;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-image: -webkit-linear-gradient(1800deg, #0175BB, #07CAF9);
+  box-shadow: 0 5px 5px 0 #73DFFC;
+  border-radius: 10vh;
+}
+@media screen and (max-width: 767px) {
+  #open,
+#submit {
+    display: none;
+  }
+}
+
+.sp_button {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .sp_button {
+    display: block;
+    width: 90vw;
+    height: 5vh;
+    margin: auto;
+    margin-bottom: 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    background-image: -webkit-linear-gradient(1800deg, rgb(7, 103, 147), rgb(3, 193, 251));
+    border-radius: 10vh;
+  }
+}
+
 /* header*/
 header {
   width: 94vw;
@@ -47,24 +84,6 @@ header .header_inner span {
   color: #97b9d1;
 }
 
-#open,
-#submit {
-  width: 15vw;
-  height: 6vh;
-  color: white;
-  border: none;
-  cursor: pointer;
-  background-image: -webkit-linear-gradient(1800deg, #0175BB, #07CAF9);
-  box-shadow: 0 5px 5px 0 #73DFFC;
-  border-radius: 10vh;
-}
-@media screen and (max-width: 767px) {
-  #open,
-#submit {
-    display: none;
-  }
-}
-
 /* modal window */
 #mask {
   height: 100vh;
@@ -75,13 +94,13 @@ header .header_inner span {
   background: rgba(0, 0, 0, 0.4);
   position: fixed;
 }
-#mask.hidden {
-  display: none;
-}
 @media screen and (max-width: 767px) {
   #mask {
     height: 100%;
   }
+}
+#mask.hidden {
+  display: none;
 }
 
 #modal {
@@ -118,19 +137,18 @@ header .header_inner span {
   cursor: pointer;
   position: absolute;
 }
-
-.study_container {
+#modal .study_container {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
 }
 @media screen and (max-width: 767px) {
-  .study_container {
+  #modal .study_container {
     flex-direction: column;
     padding: 5%;
   }
 }
-.study_container .study_inner {
+#modal .study_container .study_inner {
   width: 30vw;
   height: 58vh;
   display: flex;
@@ -139,16 +157,16 @@ header .header_inner span {
   justify-content: space-around;
 }
 @media screen and (max-width: 767px) {
-  .study_container .study_inner {
+  #modal .study_container .study_inner {
     width: 100%;
   }
 }
-.study_container .study_title {
+#modal .study_container .study_title {
   font-size: 1.8vh;
 }
-.study_container .study_comment_box,
-.study_container .study_date_box,
-.study_container .study_time_box {
+#modal .study_container .study_comment_box,
+#modal .study_container .study_date_box,
+#modal .study_container .study_time_box {
   width: 96%;
   height: 5vh;
   padding: 2%;
@@ -156,11 +174,11 @@ header .header_inner span {
   border-radius: 2vh;
   background-color: #f5f5f8;
 }
-.study_container .study_selection_box label {
+#modal .study_container .study_selection_box label {
   padding-left: 40px;
   position: absolute;
 }
-.study_container .study_selection_box label:before {
+#modal .study_container .study_selection_box label:before {
   opacity: 0;
   content: "";
   display: inline-block;
@@ -173,7 +191,7 @@ header .header_inner span {
   top: -3px;
   left: 8px;
 }
-.study_container .study_selection_box label:after {
+#modal .study_container .study_selection_box label:after {
   content: "";
   display: block;
   width: 20px;
@@ -183,21 +201,20 @@ header .header_inner span {
   top: 0;
   left: 0;
 }
-.study_container .study_selection_box [type=checkbox]:checked + label:before {
+#modal .study_container .study_selection_box [type=checkbox]:checked + label:before {
   opacity: 1;
 }
-.study_container .study_comment_box {
+#modal .study_container .study_comment_box {
   height: 25vh;
 }
-.study_container .study_data_check {
+#modal .study_container .study_data_check {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.study_container .study_data_check label {
+#modal .study_container .study_data_check label {
   display: inline-block;
-  background-color: #f9f9f9;
-  color: #adadad;
+  background-color: #f5f5f8;
   border-radius: 25px;
   white-space: nowrap;
   margin: 3px 0px;
@@ -208,13 +225,11 @@ header .header_inner span {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   transition: all 0.2s;
-}
-.study_container .study_data_check label {
   padding: 8px 10px;
   cursor: pointer;
   color: black;
 }
-.study_container .study_data_check label::before {
+#modal .study_container .study_data_check label::before {
   font-style: normal;
   font-variant: normal;
   text-rendering: auto;
@@ -228,26 +243,22 @@ header .header_inner span {
   border-radius: 50%;
   color: white;
 }
-.study_container .study_data_check input[type=checkbox]:checked + label::before {
+#modal .study_container .study_data_check input[type=checkbox]:checked + label::before {
   content: "✓";
   background-color: #0F70BD;
   border-radius: 50%;
   color: white;
   transition: all 0.2s;
-}
-.study_container .study_data_check input[type=checkbox]:checked + label::before {
   opacity: 1;
   transition: all 0.2s;
 }
-.study_container .study_data_check input[type=checkbox]:checked + label {
+#modal .study_container .study_data_check input[type=checkbox]:checked + label {
   background-color: #E7F5FF;
   color: black;
   transition: all 0.2s;
 }
-.study_container .study_data_check input[type=checkbox] {
+#modal .study_container .study_data_check input[type=checkbox] {
   display: absolute;
-}
-.study_container .study_data_check input[type=checkbox] {
   position: absolute;
   opacity: 0;
 }
@@ -511,6 +522,7 @@ header .header_inner span {
   width: 20vw;
 }
 
+/* footer */
 .footer {
   width: 94vw;
   height: 10vh;
@@ -533,22 +545,4 @@ header .header_inner span {
 .footer .material-symbols-outlined {
   color: rgb(23, 91, 147);
   cursor: pointer;
-}
-
-.sp_button {
-  display: none;
-}
-@media screen and (max-width: 767px) {
-  .sp_button {
-    display: block;
-    width: 90vw;
-    height: 5vh;
-    margin: auto;
-    margin-bottom: 20px;
-    color: white;
-    border: none;
-    cursor: pointer;
-    background-image: -webkit-linear-gradient(1800deg, rgb(7, 103, 147), rgb(3, 193, 251));
-    border-radius: 10vh;
-  }
 }/*# sourceMappingURL=style.css.map */
