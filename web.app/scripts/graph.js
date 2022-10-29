@@ -4,7 +4,7 @@
   var jsonfile = {
     jsonarray: [
       {
-        day: "",
+        day:1,
         time: 3,
       },
       {
@@ -12,7 +12,7 @@
         time: 4,
       },
       {
-        day: "",
+        day: 3,
         time: 5,
       },
       {
@@ -20,7 +20,7 @@
         time: 3,
       },
       {
-        day: "",
+        day: 5,
         time: 0,
       },
       {
@@ -28,7 +28,7 @@
         time: 0,
       },
       {
-        day: "",
+        day: 7,
         time: 4,
       },
       {
@@ -36,7 +36,7 @@
         time: 2,
       },
       {
-        day: "",
+        day: 9,
         time: 2,
       },
       {
@@ -44,7 +44,7 @@
         time: 8,
       },
       {
-        day: "",
+        day: 11,
         time: 8,
       },
       {
@@ -52,7 +52,7 @@
         time: 2,
       },
       {
-        day: "",
+        day: 13,
         time: 2,
       },
       {
@@ -60,7 +60,7 @@
         time: 1,
       },
       {
-        day: "",
+        day: 15,
         time: 7,
       },
       {
@@ -68,7 +68,7 @@
         time: 4,
       },
       {
-        day: "",
+        day: 17,
         time: 4,
       },
       {
@@ -76,7 +76,7 @@
         time: 3,
       },
       {
-        day: "",
+        day: 19,
         time: 3,
       },
       {
@@ -84,7 +84,7 @@
         time: 3,
       },
       {
-        day: "",
+        day: 21,
         time: 2,
       },
       {
@@ -92,7 +92,7 @@
         time: 2,
       },
       {
-        day: "",
+        day: 23,
         time: 6,
       },
       {
@@ -100,7 +100,7 @@
         time: 2,
       },
       {
-        day: "",
+        day: 25,
         time: 2,
       },
       {
@@ -108,7 +108,7 @@
         time: 1,
       },
       {
-        day: "",
+        day: 27,
         time: 1,
       },
       {
@@ -116,7 +116,7 @@
         time: 1,
       },
       {
-        day: "",
+        day: 29,
         time: 7,
       },
       {
@@ -172,7 +172,16 @@
       },
       x: {
         ticks: {
-          stepSize: 1,
+          // [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30];
+          // maxTicksLimit:tickCounts(labels, step),
+          // stepSize: 2,     // 目盛り        
+          // min: ,      // 最小値 // beginAtZero: true でも同じ
+          // max: 30,     // 最大値
+          stepSize: 2, // 間隔
+          callback: function(value){
+            if(value % 2 != 0  && value != 0){
+              return value + 1;
+          }},
           minRotation: 0,
           maxRotation: 0,
         },

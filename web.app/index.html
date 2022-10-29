@@ -8,10 +8,10 @@
   <title>Document</title>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/style.css">
-  
+
 </head>
 
 <body>
@@ -34,41 +34,34 @@
       <div class="study_inner">
         <div class="study_date">
           <legend class="study_title">学習日</legend>
-          <div id="js-studydate" >
-          </div>
+          <div id="js-studydate"></div>
         </div>
         <div class="study_contents">
           <legend class="study_title">学習コンテンツ(複数選択可)</legend>
-          <div id="js-studycontents" class="study_data_check">
-          </div>
+          <div id="js-studycontents" class="study_data_check"></div>
         </div>
         <div class="study_language">
           <legend class="study_title">学習言語(複数選択可)</legend>
-          <div id="js-studylanguages" class="study_data_check">
-          </div>
+          <div id="js-studylanguages" class="study_data_check"></div>
         </div>
       </div>
       <div class="study_inner">
         <div class="study_time">
           <legend class="study_title">学習時間</legend>
-          <div id="js-studytime">
-          </div>
+          <div id="js-studytime"></div>
         </div>
         <div class="study_comment">
           <legend class="study_title">Twitter用コメント</legend>
-          <div id="js-studycomment">
-          </div>
+          <div id="js-studycomment"></div>
         </div>
         <div class="study_twitter">
         </div>
         <div class="study_twitter">
-          <div id="js-studytwitter" class="study_data_check">
-          </div>
+          <div id="js-studytwitter" class="study_data_check"></div>
         </div>
       </div>
       <button type="submit" id="sp_submit" class="sp_button" onClick="return isCheck()">記録・投稿</button>
     </section>
-
     <button type="submit" id="submit" onClick="return isCheck()">記録・投稿</button>
   </article>
 
@@ -79,8 +72,7 @@
 
   <!-- completion window -->
   <section id="completion" class="hidden">
-    <span id="close" class="material-symbols-outlined">
-      close</span>
+    <span id="close" class="material-symbols-outlined">close</span>
     <div class="completion_inner">
       <span>AWESOME!</span>
       <img class="completion_check" src="./img/check_mark-2.png" alt="checkmark">
@@ -149,7 +141,7 @@
     </div>
   </footer>
   <button id="sp_open" class="sp_button">記録・投稿</button>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
