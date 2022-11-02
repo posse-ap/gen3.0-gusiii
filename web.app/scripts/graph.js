@@ -172,11 +172,6 @@
       },
       x: {
         ticks: {
-          // [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30];
-          // maxTicksLimit:tickCounts(labels, step),
-          // stepSize: 2,     // 目盛り        
-          // min: ,      // 最小値 // beginAtZero: true でも同じ
-          // max: 30,     // 最大値
           stepSize: 2, // 間隔
           callback: function(value){
             if(value % 2 != 0  && value != 0){
@@ -274,7 +269,7 @@
             var labelString = chart.data.labels[index];
             var dataString =
               (
-                Math.round((dataset.data[index] / dataSum) * 1000) / 10
+                Math.round((dataset.data[index] / dataSum) * 100) 
               ).toString() + "%";
 
             // Make sure alignment settings are correct
@@ -283,7 +278,6 @@
 
             var padding = 10;
             var position = element.tooltipPosition();
-            // ctx.fillText(labelString, position.x, position.y - (fontSize / 2) - padding);
             ctx.fillText(
               dataString,
               position.x,

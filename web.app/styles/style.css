@@ -37,6 +37,10 @@ body {
   }
 }
 
+.submit_button {
+  text-align: center;
+}
+
 .sp_button {
   display: none;
 }
@@ -111,7 +115,6 @@ header .header_inner span {
   left: 0;
   right: 0;
   margin: 0 auto;
-  text-align: center;
   background-color: #fff;
   border-radius: 2vh;
   transition: transform 0.4s;
@@ -261,6 +264,9 @@ header .header_inner span {
   display: absolute;
   position: absolute;
   opacity: 0;
+}
+#modal p {
+  color: #FF0000;
 }
 
 /* loading window */

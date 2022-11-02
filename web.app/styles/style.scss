@@ -45,6 +45,9 @@ body {
     display: none;
   }
 }
+.submit_button{
+  text-align: center;
+}
 .sp_button {
   display: none;
   @include mq(sp) {
@@ -116,7 +119,7 @@ header {
   left: 0;
   right: 0;
   margin: 0 auto;
-  text-align: center;
+  // text-align: center;
   background-color: #fff;
   border-radius: 2vh;
   transition: transform 0.4s;
@@ -271,6 +274,9 @@ header {
       position: absolute;
       opacity: 0;
     }
+  }
+  p{
+    color: #FF0000;
   }
 }
 
