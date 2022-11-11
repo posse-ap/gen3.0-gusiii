@@ -275,7 +275,6 @@
             // Make sure alignment settings are correct
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
-
             var padding = 10;
             var position = element.tooltipPosition();
             ctx.fillText(
