@@ -202,7 +202,6 @@ function check_textbox(str){
 
   const chk3 = document.getElementById("twitter_share");
   
-  
   chk3.addEventListener("change", function(){
     if (this.checked) {
       console.log("twitterにシェアします");
