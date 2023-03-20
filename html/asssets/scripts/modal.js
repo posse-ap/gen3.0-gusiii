@@ -1,4 +1,6 @@
 "use strict";
+console.log('aaaaaaa');
+
   const open = document.getElementById("open");
   const spopen = document.getElementById("sp_open");
   const submit = document.getElementById("submit");
@@ -70,7 +72,12 @@ function check_textbox(str){
 }
 }
 {
-  const Contents = ['N予備校','ドットインストール','POSSE課題'];
+  //配列.map  record=配列の一個一個取り出した returnー recordの中のcontentを取り出す
+  //機能にする。引数にすると綺麗にできます
+  const Contents = contents.map(function(record){
+    return record.content
+  });
+  // const Contents = ['N予備校','ドットインストール','POSSE課題'];
   const studyContent = document.getElementById("js-studycontents");
   Contents.forEach(
     (element, index) =>
@@ -100,14 +107,9 @@ function check_textbox(str){
   }
 }
 {
-  const Languages = [
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'PHP',
-  'Laravel',
-  'SQL',
-  'SHELL'];
+  const Languages = languages.map(function(record){
+    return record.language
+  });
   const studyLanguage = document.getElementById("js-studylanguages");
   Languages.forEach(
     (element, index) =>
@@ -225,7 +227,7 @@ function isCheck() {
           count_c++;
       }
   }
-  for (let i = 0; i <script arr_checkBoxes_l.length; i++) {
+  for (let i = 0; i <arr_checkBoxes_l.length; i++) {
       if (arr_checkBoxes_l[i].checked) {
           count_l++;
       }

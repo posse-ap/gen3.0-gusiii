@@ -1,136 +1,22 @@
-"use script";
+"use strict";
+/* グラフに使う記録を持ってくる */
+const ContentTimes = contenttimes.map(function(record){
+  return record.CT
+});
+  // 配列がstringだったから数値に変換
+const ContentsTimes = ContentTimes.map(Number);
+
+const LanguageTimes = languagetimes.map(function(record){
+  return record.LT
+});
+  // 配列がstringだったから数値に変換
+const LanguagesTimes = LanguageTimes.map(Number);
+
 /* record chart */ 
 {
-  var jsonfile = {
-    jsonarray: [
-      {
-        day:1,
-        time: 3,
-      },
-      {
-        day: 2,
-        time: 4,
-      },
-      {
-        day: 3,
-        time: 5,
-      },
-      {
-        day: 4,
-        time: 3,
-      },
-      {
-        day: 5,
-        time: 0,
-      },
-      {
-        day: 6,
-        time: 0,
-      },
-      {
-        day: 7,
-        time: 4,
-      },
-      {
-        day: 8,
-        time: 2,
-      },
-      {
-        day: 9,
-        time: 2,
-      },
-      {
-        day: 10,
-        time: 8,
-      },
-      {
-        day: 11,
-        time: 8,
-      },
-      {
-        day: 12,
-        time: 2,
-      },
-      {
-        day: 13,
-        time: 2,
-      },
-      {
-        day: 14,
-        time: 1,
-      },
-      {
-        day: 15,
-        time: 7,
-      },
-      {
-        day: 16,
-        time: 4,
-      },
-      {
-        day: 17,
-        time: 4,
-      },
-      {
-        day: 18,
-        time: 3,
-      },
-      {
-        day: 19,
-        time: 3,
-      },
-      {
-        day: 20,
-        time: 3,
-      },
-      {
-        day: 21,
-        time: 2,
-      },
-      {
-        day: 22,
-        time: 2,
-      },
-      {
-        day: 23,
-        time: 6,
-      },
-      {
-        day: 24,
-        time: 2,
-      },
-      {
-        day: 25,
-        time: 2,
-      },
-      {
-        day: 26,
-        time: 1,
-      },
-      {
-        day: 27,
-        time: 1,
-      },
-      {
-        day: 28,
-        time: 1,
-      },
-      {
-        day: 29,
-        time: 7,
-      },
-      {
-        day: 30,
-        time: 8,
-      },
-    ],
-  };
-
-  var labels = jsonfile.jsonarray.map(function (e) {
-    return e.day;
-  });
-  var data = jsonfile.jsonarray.map(function (e) {
-    return e.time;
+  var labels = study_date;
+  var data = study_times.map(function (e) {
+    return e.study_time;
   });
 
   var data = {
@@ -232,8 +118,8 @@
     ],
   };
 
-  var BAChartDataLabel = jsonfile2.jsonarray2.map(function (e) {
-    return e.lang;
+  var BAChartDataLabel = languages.map(function (e) {
+    return e.language;
   });
   var BAChartDataValue = jsonfile2.jsonarray2.map(function (e) {
     return e.time;
@@ -305,7 +191,8 @@
             "#6C43E5",
             "#460AE8",
           ],
-          data: BAChartDataValue,
+          // data: BAChartDataValue,
+          data: LanguagesTimes,
         },
       ],
     },
@@ -382,11 +269,14 @@
       });
     },
   };
+  const Contents = contents.map(function(record){
+    return record.content
+  });
   var myChart = "content_chart";
   var chart = new Chart(myChart, {
     type: "doughnut",
     data: {
-      labels: ["N予備校", "ドットインストール", "POSSE課題"],
+      labels: Contents,
       datasets: [
         {
           label: "Sample",
@@ -399,7 +289,9 @@
             "#6C43E5",
             "#460AE8",
           ],
-          data: [40, 20, 40],
+          // data: [40, 20, 40],
+          data: ContentsTimes,
+          // ['37', '36', '31']
         },
       ],
     },

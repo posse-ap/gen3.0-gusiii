@@ -58,7 +58,7 @@ CREATE TABLE contents (
 INSERT INTO contents(content)
 VALUES
   ('N予備校'),
-  ('課題'),
+  ('POSSE課題'),
   ('ドットインストール');
 
 -- 学習言語のテーブル作成
