@@ -15,6 +15,7 @@ CREATE TABLE studies (
 INSERT INTO studies(study_date, content_id, language_id, study_time)
 VALUES
   ('2023-3-1', 2, 1, 3),
+  ('2023-3-1', 1, 1, 1),
   ('2023-3-2', 2, 1, 4),
   ('2023-3-3', 2, 1, 5),
   ('2023-3-4', 2, 1, 3),
@@ -59,6 +60,7 @@ INSERT INTO contents(content)
 VALUES
   ('N予備校'),
   ('POSSE課題'),
+  ('youtube'),
   ('ドットインストール');
 
 -- 学習言語のテーブル作成

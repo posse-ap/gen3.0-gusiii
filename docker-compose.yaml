@@ -26,7 +26,7 @@ services:
       - 3306:3306
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
-      - ./docker/mysql/sql:/docker-entrypoint-initdb.d
+      - ./docker/mysql/sql/:/docker-entrypoint-initdb.d
       - ./docker/mysql/my.conf:/etc/mysql/conf.d
     environment:
       - MYSQL_USER=posse

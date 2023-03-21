@@ -7,12 +7,13 @@ require('./pdo.php');
 // 今日の学習時間
 $today_stmt = $pdo->query('SELECT study_time FROM studies WHERE study_date = CURDATE()');
 $today = $today_stmt->fetch();
+
 // 今月の学習時間
-$month_stmt = $pdo->query("SELECT SUM(study_time) FROM studies WHERE DATE_FORMAT(study_date, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y')");
+$month_stmt = $pdo->query("SELECT SUM(study_time) FROM studies WHERE DATE_FORMAT(study_date, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y') and study_date < CURDATE()");
 $month = $month_stmt->fetch();
 
 // 今までの合計時間
-$total_stmt = $pdo->query('SELECT SUM(study_time) FROM studies');
+$total_stmt = $pdo->query('SELECT SUM(study_time) FROM studies WHERE study_date < CURDATE()');
 $total = $total_stmt->fetch();
 
 //コンテンツをとってくる
@@ -56,7 +57,6 @@ $language_times_stmt = $pdo->query(
 );
 $language_times = $language_times_stmt->fetchAll();
 $language_times = json_encode($language_times);
-
 ?>
 
 <!DOCTYPE html>
@@ -71,8 +71,8 @@ $language_times = json_encode($language_times);
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <link rel="stylesheet" href="./asssets/styles/reset.css">
-  <link rel="stylesheet" href="./asssets/styles/style.css">
+  <link rel="stylesheet" href="./assets/styles/reset.css">
+  <link rel="stylesheet" href="./assets/styles/style.css">
 
 </head>
 
@@ -81,7 +81,7 @@ $language_times = json_encode($language_times);
   <!-- header window -->
   <header>
     <div class="header_inner">
-      <img src="./asssets/img/logo.svg" alt="POSSE">
+      <img src="./assets/img/logo.svg" alt="POSSE">
       <span>4th week</span>
     </div>
     <button id="open">記録・投稿</button>
@@ -139,7 +139,7 @@ $language_times = json_encode($language_times);
     <span id="close" class="material-symbols-outlined">close</span>
     <div class="completion_inner">
       <span>AWESOME!</span>
-      <img class="completion_check" src="./img/check_mark-2.png" alt="checkmark">
+      <img class="completion_check" src="./assets/img/check_mark-2.png" alt="checkmark">
       <p>記録・投稿<br>完了しました</p>
     </div>
   </section>
@@ -206,38 +206,24 @@ $language_times = json_encode($language_times);
   </footer>
   <button id="sp_open" class="sp_button">記録・投稿</button>
 
-  <!-- 下のmodal.jsで読み込むための変数設定 -->
+  <!-- 下のmodal.js・graph.jsで読み込むための定数設定 -->
 <script>
   const contents = JSON.parse('<?= $content ?>');
-
-  // console.log(contents[0].content);
   const languages = JSON.parse('<?= $language ?>');
-
   const study_times = JSON.parse('<?= $study_times ?>');
-  // console.log(study_times[0].study_time);
   const study_date = JSON.parse('<?= $study_date ?>');
-  // console.log(study_date);
-
   const contenttimes = JSON.parse('<?= $content_times ?>');
-  // const Contenttimes = ContentTimes.map( Number);
-  // console.log(Contenttimes);
-//   const ContentTimes = contenttimes.map(function(record){
-//   return record.CT
-// });
-//   console.log(ContentTimes);
-  // console.log(contenttimes);
-
   const languagetimes = JSON.parse('<?= $language_times ?>');
-  
 </script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
-<script src="./asssets/scripts/modal.js"></script>
-  <script src="./asssets/scripts/loading.js"></script>
+  <script src="./assets/scripts/modal.js"></script>
+  <script src="./assets/scripts/loading.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-  <script src="./asssets/scripts/graph.js"></script>
-  <script src="./asssets/scripts/footer.js"></script>
+  <script src="./assets/scripts/graph.js"></script>
+  <script src="./assets/scripts/footer.js"></script>
 </body>
 
 </html>
