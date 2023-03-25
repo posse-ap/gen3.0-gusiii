@@ -1,0 +1,11 @@
+
+
+FROM mysql:8.0.30
+
+ENV LANG C.UTF-8
+ENV LANGUAGE C:ja
+ENV LC_ALL C.UTF-8
+# MySQLの設定
+COPY ./my.conf/my.cnf /etc/mysql/conf.d/my.cnf
+# 初期投入データ
+COPY ./sql/init.sql /docker-entrypoint-initdb.d

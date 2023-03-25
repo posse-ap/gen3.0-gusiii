@@ -12,10 +12,30 @@ CREATE TABLE studies (
   `study_time` INT NOT NULL
 );
 
-INSERT INTO studies(study_date, content_id, language_id, study_time)
-VALUES
+
+-- 学習コンテンツのテーブル作成
+DROP TABLE IF EXISTS contents;
+CREATE TABLE contents (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  content TEXT
+);
+
+-- 学習言語のテーブル作成
+
+DROP TABLE IF EXISTS languages;
+CREATE TABLE languages (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  language VARCHAR(255) NOT NULL
+);
+
+
+INSERT INTO studies(study_date, content_id, language_id, study_time) VALUES
+  ('2023-2-1', 2, 1, 3),
+  ('2023-2-2', 1, 1, 4),
+  ('2023-2-3', 1, 1, 5),
+  ('2023-2-4', 1, 1, 3),
+  ('2023-2-7', 2, 0, 4),
   ('2023-3-1', 2, 1, 3),
-  ('2023-3-1', 1, 1, 1),
   ('2023-3-2', 2, 1, 4),
   ('2023-3-3', 2, 1, 5),
   ('2023-3-4', 2, 1, 3),
@@ -48,31 +68,15 @@ VALUES
   ('2023-3-31', 1, 6, 3);
 
 
-
--- 学習コンテンツのテーブル作成
-DROP TABLE IF EXISTS contents;
-CREATE TABLE contents (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  content VARCHAR(255) NOT NULL
-);
-
-INSERT INTO contents(content)
-VALUES
-  ('N予備校'),
+INSERT INTO contents(content) VALUES
+  ("N予備校"),
   ('POSSE課題'),
-  ('youtube'),
-  ('ドットインストール');
+  ('ドットインストール'),
+  ('youtube');
 
--- 学習言語のテーブル作成
 
-DROP TABLE IF EXISTS languages;
-CREATE TABLE languages (
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  language VARCHAR(255) NOT NULL
-);
 
-INSERT INTO languages(language)
-VALUES
+INSERT INTO languages(language) VALUES
   ('HTML'),
   ('CSS'),
   ('JavaScript'),

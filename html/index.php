@@ -3,18 +3,18 @@ declare(strict_types = 1);
 
 // PDOの設定を呼び出す
 require('./pdo.php');
-
 // 今日の学習時間
-$today_stmt = $pdo->query('SELECT study_time FROM studies WHERE study_date = CURDATE()');
+$today_stmt = $pdo->query("SELECT study_time FROM studies WHERE DATE_FORMAT(study_date, '%y-%m-%d') = DATE_FORMAT(now(), '%y-%m-%d')");
 $today = $today_stmt->fetch();
 
 // 今月の学習時間
-$month_stmt = $pdo->query("SELECT SUM(study_time) FROM studies WHERE DATE_FORMAT(study_date, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y') and study_date < CURDATE()");
+$month_stmt = $pdo->query("SELECT SUM(study_time) FROM studies WHERE DATE_FORMAT(now(), '%y-%m-01') <= DATE_FORMAT(study_date, '%y-%m-%d') and DATE_FORMAT(study_date, '%y-%m-%d') <= DATE_FORMAT(now(), '%y-%m-%d')");
 $month = $month_stmt->fetch();
 
 // 今までの合計時間
-$total_stmt = $pdo->query('SELECT SUM(study_time) FROM studies WHERE study_date < CURDATE()');
+$total_stmt = $pdo->query("SELECT SUM(study_time) FROM studies WHERE study_date <= now()");
 $total = $total_stmt->fetch();
+
 
 //コンテンツをとってくる
 $content_stmt = $pdo->query('SELECT content FROM contents');
@@ -26,37 +26,6 @@ $language_stmt = $pdo->query('SELECT language FROM languages');
 $language = $language_stmt->fetchAll();
 $language = json_encode($language);
 
-//学習時間をとってくる
-$study_times_stmt = $pdo->query(
-  'SELECT study_time FROM studies'
-);
-$study_times = $study_times_stmt->fetchAll();
-$study_times = json_encode($study_times);
-
-//学習日をとってくる
-$study_dates_stmt = $pdo->query(
-  'SELECT study_date FROM studies'
-);
-$study_dates = $study_dates_stmt->fetchAll();
-$study_date = array_map(function($record){
-  return mb_substr($record['study_date'],8,2);
-},$study_dates);
-//mb_substr string切り出す
-$study_date = json_encode($study_date);
-
-//コンテンツごとに学習時間をとってくる
-$content_times_stmt = $pdo->query(
-  'SELECT content_id,sum(study_time) as CT FROM studies group by content_id ORDER BY content_id'
-);
-$content_times = $content_times_stmt->fetchAll();
-$content_times = json_encode($content_times);
-
-// 言語ごとに学習時間をとってくる
-$language_times_stmt = $pdo->query(
-  'SELECT language_id,sum(study_time) as LT FROM studies group by language_id ORDER BY language_id'
-);
-$language_times = $language_times_stmt->fetchAll();
-$language_times = json_encode($language_times);
 ?>
 
 <!DOCTYPE html>
@@ -72,6 +41,7 @@ $language_times = json_encode($language_times);
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="./assets/styles/reset.css">
+  <link rel="stylesheet" href="./assets/styles/calendar.css">
   <link rel="stylesheet" href="./assets/styles/style.css">
 
 </head>
@@ -128,6 +98,30 @@ $language_times = json_encode($language_times);
     </section>
     <div class="submit_button"><button type="submit" id="submit" onClick="return isCheck()">記録・投稿</button></div>
   </article>
+
+  <!-- calendar window -->
+  <section id="calendar" class="hidden" class="calendar_wrapper">
+    <div class="cal__main">
+    <div class="cal__container">
+      <div class="calendar__top">
+        <span class="arrow" id="back__arrow"><</span>
+        <div class="calendar__day">
+          <span class="cal__month" id="cal__month"></span>
+          <span class="cal__date" id="cal__date"></span>
+        </div>
+        
+        <span class="arrow" id="next__arrow">></span>
+      </div>
+      <div class="calendar__bottom">
+        <div class="cal__weekdays" id="cal__weekdays">
+      
+        </div>
+        <div class="cal__days" id="cal__days"></div>
+      </div>
+    </div>
+    </div>
+    
+  </section>
 
   <!-- loading window -->
   <section id="loading" class="hidden">
@@ -210,20 +204,20 @@ $language_times = json_encode($language_times);
 <script>
   const contents = JSON.parse('<?= $content ?>');
   const languages = JSON.parse('<?= $language ?>');
-  const study_times = JSON.parse('<?= $study_times ?>');
-  const study_date = JSON.parse('<?= $study_date ?>');
-  const contenttimes = JSON.parse('<?= $content_times ?>');
-  const languagetimes = JSON.parse('<?= $language_times ?>');
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
   <script src="./assets/scripts/modal.js"></script>
+  <script src="./assets/scripts/calendar.js"></script>
   <script src="./assets/scripts/loading.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-  <script src="./assets/scripts/graph.js"></script>
   <script src="./assets/scripts/footer.js"></script>
 </body>
 
 </html>
+<?php
+
+require "./graph.php";
+?>

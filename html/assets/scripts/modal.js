@@ -37,21 +37,23 @@ console.log('aaaaaaa');
 
 {
   const studyDate = document.getElementById("js-studydate");
+  // studyDate.innerHTML =
+  //   '<input type="text" name="today" id="calendarTEST" value="YYYY-MM-DD" class="study_date_box" required><div class="err_text" id="err_textbox_calendar"></div>';
   studyDate.innerHTML =
-    '<input type="text" name="today" id="calendarTEST" value="YYYY-MM-DD" class="study_date_box" required><div class="err_text" id="err_textbox_calendar"></div>';
+    '<button name="today" id="calendar_open" value="YYYY-MM-DD" class="study_date_box" required><div class="err_text" id="err_textbox_calendar"></div>';
   // const config = {
   //   maxDate: "today"
   // }
   // flatpickr('#calendarTEST',config);
-  flatpickr.localize(flatpickr.l10ns.ja);
+  // flatpickr.localize(flatpickr.l10ns.ja);
   // flatpickr('#calendarTEST');
-  var fp = flatpickr(calendarTEST, {
-    // dateFormat: 'Y-n-j(l)' ,// フォーマットの変更]
-    altInput: true,
-    altFormat: "Y年n月j日",
-    minDate: new Date().fp_incr(-7), //7日前から
-    maxDate:"today",
-});
+//   var fp = flatpickr(calendarTEST, {
+//     // dateFormat: 'Y-n-j(l)' ,// フォーマットの変更]
+//     altInput: true,
+//     altFormat: "Y年n月j日",
+//     minDate: new Date().fp_incr(-7), //7日前から
+//     maxDate:"today",
+// });
 $(function(){
   $(".study_date_box").bind("blur", function() {
     var _textbox = $(this).val();
@@ -140,8 +142,19 @@ function check_textbox(str){
 }
 {
   const studyTime = document.getElementById("js-studytime");
-  studyTime.innerHTML =
-    '<input type="text" class="input-numeric study_time_box" name="time" maxlength="1" inputmode="numeric" id="jq-timebox"><div class="err_text" id="err_textbox_time"></div>';
+   studyTime.innerHTML =
+     '<input type="text" class="input-numeric study_time_box" name="time" maxlength="1" inputmode="numeric" id="jq-timebox"><div class="err_text" id="err_textbox_time"></div>';
+  let time = '';
+  for (let i = 1; i <= 24; i++){
+    {
+    time +=
+    
+    `<option value="${i}">${i}</option>`
+    ;
+    }
+    studyTime.innerHTML = `<select name="time" id="studyTime" class="study_time">` +time+`</select><i>h</i>`
+  };
+
     $(function(){
       $("#jq-timebox").bind("blur", function() {
         var _textbox = $(this).val();
