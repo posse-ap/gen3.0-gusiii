@@ -159,8 +159,6 @@ h1 {
   left: calc(50% - 191px/2);
   top: 0px;
   margin-bottom: 8px;
-  font-family: 'Noto Sans JP';
-  font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 150%;
@@ -177,8 +175,6 @@ h1 {
   color: #0071BC;
   margin-bottom: 43px;
 }
-
-
 
 .p-second_body {
   display: flex;
@@ -205,7 +201,6 @@ h1 {
 
 .p-third_box {
   width: 68%;
-
   margin: 0 15%;
   text-align: center;
   position: relative;
